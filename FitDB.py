@@ -2,6 +2,7 @@ import fitparse
 import os
 import re
 import json
+import mysql.connector
 
 def main():
     # Get absolute path of JSON file
@@ -35,6 +36,10 @@ def upload(directory, host, user, password, db):
     print(user)
     print(password)
     print(db)
+
+    connection = mysql.connector.connect(user=user, password=password, host=host, database=db)
+
+    connection.close()
 
 if __name__ == "__main__":
     main()
