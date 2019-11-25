@@ -17,6 +17,7 @@ def main():
     for directory in fitdata['directories']:
         convert(directory, fitdata['output'])
 
+# Converts all .fit files in directory to .json file in ouput
 def convert(directory, output):
     for subdir, dirs, files in os.walk(directory):
         for file in files:
