@@ -22,7 +22,7 @@ def convert(directory, output):
         for file in files:
             if file.endswith((".fit", ".FIT")):
                 print("File processing: " + directory + "/" + file)
-                os.system("python " + os.path.join(os.path.dirname(__file__), "fitdump.py ") + directory + "/" + file + " -o " + output + "/test.json" + " -t json")
+                os.system("python " + os.path.join(os.path.dirname(__file__), "fitdump.py ") + directory + "/" + file + " -o " + output + "/" + file + ".json" + " -t json")
 
 if __name__ == "__main__":
     main()
