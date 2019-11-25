@@ -1,5 +1,6 @@
 import fitparse
-import "fitdump.py"
+import os
+import re
 import json
 
 def main():
@@ -17,7 +18,11 @@ def main():
         convert(directory, fitdata['output'])
 
 def convert(directory, output):
-    os.system("fitdump")
+    for subdir, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith((".fit", ".FIT")):
+                print("File processing: " + directory + "/" + file)
+                os.system("python " + os.path.join(os.path.dirname(__file__), "fitdump.py ") + directory + "/" + file + " -o " + output + "/test.json" + " -t json")
 
 if __name__ == "__main__":
     main()
