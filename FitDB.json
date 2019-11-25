@@ -1,0 +1,8 @@
+{
+  'directories':
+    [
+      '/Directory1',
+      '/Directory2'
+    ]
+  'output': '/Directory3'
+}
