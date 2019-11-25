@@ -1,8 +1,15 @@
 {
-  'directories':
+  "directories":
     [
-      '/Directory1',
-      '/Directory2'
-    ]
-  'output': '/Directory3'
+      "/Directory1",
+      "/Directory2"
+    ],
+  "output": "/Directory3",
+  "server":
+    {
+      "host": "myhost.com",
+      "username": "MyUsername",
+      "password": "MyPassword",
+      "database": "MyDB"
+    }
 }

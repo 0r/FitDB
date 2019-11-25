@@ -17,6 +17,9 @@ def main():
     for directory in fitdata['directories']:
         convert(directory, fitdata['output'])
 
+    # Call upload with output directory from convert as input
+    upload(fitdata['output'], fitdata["server"]["host"], fitdata["server"]["username"], fitdata["server"]["password"], fitdata["server"]["database"])
+
 # Converts all .fit files in directory to .json file in ouput
 def convert(directory, output):
     for subdir, dirs, files in os.walk(directory):
@@ -24,6 +27,14 @@ def convert(directory, output):
             if file.endswith((".fit", ".FIT")):
                 print("File processing: " + directory + "/" + file)
                 os.system("python " + os.path.join(os.path.dirname(__file__), "fitdump.py ") + directory + "/" + file + " -o " + output + "/" + file + ".json" + " -t json")
+
+# Uploads JSON data to MySQL database
+def upload(directory, host, user, password, db):
+    print(directory)
+    print(host)
+    print(user)
+    print(password)
+    print(db)
 
 if __name__ == "__main__":
     main()
